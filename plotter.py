@@ -78,6 +78,9 @@ class Plotter:
         self.h = abs(ylim[1] - ylim[0])
         self.y = min(ylim)
 
+        self.plot.grid([0.5,0.5,0.5], which='major')
+        
+
     def zoom(self, factor):
         center_on = self.line.get_xdata()[0]
         xlim = self.plot.axes.get_xlim()

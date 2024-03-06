@@ -14,12 +14,12 @@ class CSVFormat(Format):
 
     def read(self, filename):
         try:
-            d = self.get_dialect(filename)
-            df = pd.read_csv(filename, dialect=d, sep=d.delimiter, doublequote=d.doublequote)
+            #d = self.get_dialect(filename)
+            df = pd.read_csv(filename) #, dialect=d, sep=d.delimiter, doublequote=d.doublequote)
 
             # Fix for columns with the same name
             with open(filename, 'r') as f:
-                reader = csv.reader(f, dialect=d)
+                reader = csv.reader(f) #, dialect=d)
                 header = next(reader)
             df.columns = header
         except pd.errors.ParserError:
